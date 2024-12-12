@@ -8,7 +8,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
   <!-- Estilo CSS -->
-  <style>
+    <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
@@ -20,10 +20,10 @@
       margin: 0;
     }
     h1 {
-      font-size: 24px; /* Tamaño más pequeño */
+      font-size: 24px;
       font-weight: bold;
-      font-family: 'Roboto'; /* Fuente moderna */
-      color: #333; /* Color oscuro */
+      font-family: 'Roboto', Arial, sans-serif;
+      color: #333;
       margin-bottom: 20px;
     }
     div {
@@ -32,14 +32,16 @@
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
+      width: 300px; /* Ancho fijo para el formulario */
     }
     input {
       margin: 10px 0;
       padding: 10px;
-      width: 80%;
+      width: calc(100% - 20px); /* Asegura que las cajas se ajusten al contenedor */
       border: 1px solid #ddd;
       border-radius: 4px;
       font-size: 14px;
+      box-sizing: border-box; /* Evita que el padding exceda el ancho */
     }
     button {
       background-color: #007BFF;
@@ -49,12 +51,15 @@
       border-radius: 4px;
       font-size: 16px;
       cursor: pointer;
+      width: 100%; /* Botón ocupa el ancho completo */
     }
     button:hover {
       background-color: #0056b3;
     }
     #error-message {
       margin-top: 10px;
+      color: red;
+      font-size: 14px;
     }
   </style>
 </head>
