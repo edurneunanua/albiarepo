@@ -35,11 +35,16 @@
     document.getElementById('login-button').addEventListener('click', () => {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
-
+      
+    if (!email || !password) {
+      document.getElementById('error-message').textContent = "Por favor, completa todos los campos.";
+    return;
+    }
+     
       auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
           // Inicio de sesión exitoso
-          window.location.href = “https://sites.google.com/view/albiarepo/docs-restringidos"; // Redirige a tu página restringida
+          window.location.href = "https://sites.google.com/view/albiarepo/docs-restringidos"; // Redirige a tu página restringida
         })
         .catch((error) => {
           // Manejo de errores
