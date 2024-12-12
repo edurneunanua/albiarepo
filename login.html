@@ -7,6 +7,56 @@
   <!-- Carga de Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
+  <!-- Estilo CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    h1 {
+      font-size: 24px; /* Tamaño más pequeño */
+      font-weight: bold;
+      font-family: 'Roboto', Arial, sans-serif; /* Fuente moderna */
+      color: #333; /* Color oscuro */
+      margin-bottom: 20px;
+    }
+    div {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #error-message {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
   <h1>Inicio de Sesión</h1>
@@ -20,13 +70,14 @@
   <script>
     // Configuración de Firebase
     const firebaseConfig = {
-      apiKey: "TU_API_KEY",
-      authDomain: "tu-proyecto.firebaseapp.com",
-      projectId: "tu-proyecto",
-      storageBucket: "tu-proyecto.appspot.com",
-      messagingSenderId: "TU_MESSAGING_SENDER_ID",
-      appId: "TU_APP_ID"
-    };
+    apiKey: "AIzaSyAAIAvyhP7-hHWoTuxnytwaE8WSqSn4GOU",
+    authDomain: "albia-repo-pass.firebaseapp.com",
+    projectId: "albia-repo-pass",
+    storageBucket: "albia-repo-pass.firebasestorage.app",
+    messagingSenderId: "721066271868",
+    appId: "1:721066271868:web:89be14c52fa2dfa8c615f9"
+  };
+
 
     // Inicializar Firebase
     const app = firebase.initializeApp(firebaseConfig);
