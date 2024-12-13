@@ -27,34 +27,22 @@
       color: #333;
       margin-bottom: 20px;
     }
-    .form-container {
+    div {
       background: white;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       text-align: center;
-      width: 300px;
-    }
-    .success-container {
-      background: #e6ffe6;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      margin-top: 20px;
-      width: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 300px; /* Ancho fijo para el formulario */
     }
     input {
       margin: 10px 0;
       padding: 10px;
-      width: calc(100% - 20px);
+      width: calc(100% - 20px); /* Asegura que las cajas se ajusten al contenedor */
       border: 1px solid #ddd;
       border-radius: 4px;
       font-size: 14px;
-      box-sizing: border-box;
+      box-sizing: border-box; /* Evita que el padding exceda el ancho */
     }
     button {
       background-color: #007BFF;
@@ -64,7 +52,7 @@
       border-radius: 4px;
       font-size: 16px;
       cursor: pointer;
-      width: 100%;
+      width: 100%; /* Botón ocupa el ancho completo */
     }
     button:hover {
       background-color: #0056b3;
@@ -74,27 +62,30 @@
       color: red;
       font-size: 14px;
     }
-    #access-button {
-      margin-top: 10px;
-      background-color: #28a745;
+    #success-message {
+      margin-top: 20px;
+      color: green;
+      font-size: 16px;
+      text-align: center;
     }
-    #access-button:hover {
-      background-color: #218838;
+    #link-container {
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
   <h1>Inicio de Sesión</h1>
-  <div class="form-container">
+  <div>
     <input type="email" id="email" name="email" autocomplete="email" placeholder="Correo electrónico" required />
     <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Contraseña" required />
     <button id="login-button">Iniciar Sesión</button>
     <p id="error-message"></p>
-  </div>
-
-  <div id="success-container" class="success-container" style="display: none;">
-    <p>Login correcto. Haz clic en el siguiente botón para acceder a la sección de documentos:</p>
-    <button id="access-button" onclick="window.location.href='https://sites.google.com/albiarepos/proyectos';">Acceder a la documentación</button>
+    <div id="success-message" style="display: none;">
+      Login correcto. A continuación, haz clic en el siguiente enlace para acceder a la sección de documentos:
+      <div id="link-container">
+        <a id="docs-link" href="#" target="_blank">Acceder a Documentos</a>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -126,18 +117,18 @@
         .then((userCredential) => {
           console.log("Inicio de sesión exitoso:", userCredential.user);
 
-          // Mostrar mensaje de éxito
-          const successContainer = document.getElementById('success-container');
-          successContainer.style.display = "flex";
+          // Mostrar mensaje de éxito y el enlace
+          const successMessage = document.getElementById('success-message');
+          const docsLink = document.getElementById('docs-link');
+          successMessage.style.display = "block";
+          docsLink.href = "https://sites.google.com/view/albiarepo/docs-restringidos";
+          docsLink.textContent = "https://sites.google.com/view/albiarepo/docs-restringidos";
         })
         .catch((error) => {
           console.error("Error al iniciar sesión:", error.code, error.message);
           document.getElementById('error-message').textContent = `Error (${error.code}): ${error.message}`;
         });
     });
-
-    // Eliminar cualquier listener de 'unload' (solo si es necesario)
-    window.addEventListener("unload", null);
   </script>
 </body>
 </html>
