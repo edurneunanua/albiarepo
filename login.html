@@ -70,10 +70,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
-    }
-    #link-container {
-      margin-top: 10px;
+      gap: 8px;
+      padding: 10px;
+      background-color: #f0f9f0;
+      border: 1px solid #cce5cc;
+      border-radius: 8px;
     }
     #docs-link {
       color: #007BFF;
@@ -94,9 +95,7 @@
     <p id="error-message"></p>
     <div id="success-message" style="display: none;">
       <p>Login correcto</p>
-      <div id="link-container">
-        <a id="docs-link" href="#" target="_blank">Acceder a Documentos</a>
-      </div>
+      <a id="docs-link" href="#" target="_blank">Ir a documentos</a>
     </div>
   </div>
 
@@ -132,7 +131,7 @@
           // Mostrar mensaje de éxito y el enlace
           const successMessage = document.getElementById('success-message');
           const docsLink = document.getElementById('docs-link');
-          successMessage.style.display = "block";
+          successMessage.style.display = "flex";
           docsLink.href = "https://sites.google.com/view/albiarepos/proyectos";
           docsLink.textContent = "Ir a documentos";
         })
