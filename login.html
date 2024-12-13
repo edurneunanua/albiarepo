@@ -101,7 +101,7 @@
       auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
           console.log("Inicio de sesión exitoso:", userCredential.user);
-          window.location.href = "https://sites.google.com/view/albiarepo/inicio2"; // Cambia esto por tu página restringida
+          window.location.href = "https://sites.google.com/view/albiarepos/proyectos"; // Cambia esto por tu página restringida
         })
         .catch((error) => {
           console.error("Error al iniciar sesión:", error.code, error.message);
