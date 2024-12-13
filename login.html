@@ -93,7 +93,7 @@
     <button id="login-button">Iniciar Sesión</button>
     <p id="error-message"></p>
     <div id="success-message" style="display: none;">
-      <p>Login correcto. A continuación, haz clic en el siguiente enlace para acceder a la sección de documentos:</p>
+      <p>Login correcto</p>
       <div id="link-container">
         <a id="docs-link" href="#" target="_blank">Acceder a Documentos</a>
       </div>
@@ -134,7 +134,7 @@
           const docsLink = document.getElementById('docs-link');
           successMessage.style.display = "block";
           docsLink.href = "https://sites.google.com/view/albiarepos/proyectos";
-          docsLink.textContent = "https://sites.google.com/view/albiarepos/proyectos";
+          docsLink.textContent = "Accede a los documentos haciendo clic aquí.";
         })
         .catch((error) => {
           console.error("Error al iniciar sesión:", error.code, error.message);
