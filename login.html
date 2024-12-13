@@ -2,15 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0",frame-src 'self'; frame-ancestors 'self' sites.google.com www.gstatic.com *.googleusercontent.com; object-src 'none';
->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inicio de Sesión</title>
   <!-- Carga de Firebase -->
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.7/firebase-auth-compat.js"></script>
 
   <!-- Estilo CSS -->
-    <style>
+  <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
@@ -63,6 +62,15 @@
       color: red;
       font-size: 14px;
     }
+    #success-message {
+      margin-top: 20px;
+      color: green;
+      font-size: 16px;
+      text-align: center;
+    }
+    #link-container {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -71,20 +79,25 @@
     <input type="email" id="email" name="email" autocomplete="email" placeholder="Correo electrónico" required />
     <input type="password" id="password" name="password" autocomplete="current-password" placeholder="Contraseña" required />
     <button id="login-button">Iniciar Sesión</button>
-    <p id="error-message" style="color: red;"></p>
+    <p id="error-message"></p>
+    <div id="success-message" style="display: none;">
+      Login correcto. A continuación, haz clic en el siguiente enlace para acceder a la sección de documentos:
+      <div id="link-container">
+        <a id="docs-link" href="#" target="_blank">Acceder a Documentos</a>
+      </div>
+    </div>
   </div>
 
   <script>
     // Configuración de Firebase
     const firebaseConfig = {
-    apiKey: "AIzaSyAAIAvyhP7-hHWoTuxnytwaE8WSqSn4GOU",
-    authDomain: "albia-repo-pass.firebaseapp.com",
-    projectId: "albia-repo-pass",
-    storageBucket: "albia-repo-pass.firebasestorage.app",
-    messagingSenderId: "721066271868",
-    appId: "1:721066271868:web:89be14c52fa2dfa8c615f9"
-  };
-
+      apiKey: "AIzaSyAAIAvyhP7-hHWoTuxnytwaE8WSqSn4GOU",
+      authDomain: "albia-repo-pass.firebaseapp.com",
+      projectId: "albia-repo-pass",
+      storageBucket: "albia-repo-pass.firebasestorage.app",
+      messagingSenderId: "721066271868",
+      appId: "1:721066271868:web:89be14c52fa2dfa8c615f9"
+    };
 
     // Inicializar Firebase
     const app = firebase.initializeApp(firebaseConfig);
@@ -103,9 +116,13 @@
       auth.signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
           console.log("Inicio de sesión exitoso:", userCredential.user);
-          href="https://sites.google.com/view/albiarepo/docs-restringidos" target="_blank";
 
-        // window.location.href = "https://sites.google.com/view/albiarepo/docs-restringidos"; // Cambia esto por tu página restringida
+          // Mostrar mensaje de éxito y el enlace
+          const successMessage = document.getElementById('success-message');
+          const docsLink = document.getElementById('docs-link');
+          successMessage.style.display = "block";
+          docsLink.href = "https://sites.google.com/view/albiarepo/docs-restringidos";
+          docsLink.textContent = "https://sites.google.com/view/albiarepo/docs-restringidos";
         })
         .catch((error) => {
           console.error("Error al iniciar sesión:", error.code, error.message);
@@ -115,3 +132,4 @@
   </script>
 </body>
 </html>
+
