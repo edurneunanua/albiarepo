@@ -43,6 +43,9 @@
       text-align: center;
       margin-top: 20px;
       width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     input {
       margin: 10px 0;
@@ -92,46 +95,3 @@
   <div id="success-container" class="success-container" style="display: none;">
     <p>Login correcto. Haz clic en el siguiente botón para acceder a la sección de documentos:</p>
     <button id="access-button" onclick="window.location.href='https://sites.google.com/albiarepos/proyectos';">Acceder a la documentación</button>
-  </div>
-
-  <script>
-    // Configuración de Firebase
-    const firebaseConfig = {
-      apiKey: "AIzaSyAAIAvyhP7-hHWoTuxnytwaE8WSqSn4GOU",
-      authDomain: "albia-repo-pass.firebaseapp.com",
-      projectId: "albia-repo-pass",
-      storageBucket: "albia-repo-pass.firebasestorage.app",
-      messagingSenderId: "721066271868",
-      appId: "1:721066271868:web:89be14c52fa2dfa8c615f9"
-    };
-
-    // Inicializar Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-
-    // Manejo del inicio de sesión
-    document.getElementById('login-button').addEventListener('click', () => {
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      if (!email || !password) {
-        document.getElementById('error-message').textContent = "Por favor, completa todos los campos.";
-        return;
-      }
-
-      auth.signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-          console.log("Inicio de sesión exitoso:", userCredential.user);
-
-          // Mostrar mensaje de éxito
-          const successContainer = document.getElementById('success-container');
-          successContainer.style.display = "block";
-        })
-        .catch((error) => {
-          console.error("Error al iniciar sesión:", error.code, error.message);
-          document.getElementById('error-message').textContent = `Error (${error.code}): ${error.message}`;
-        });
-    });
-  </script>
-</body>
-</html>
